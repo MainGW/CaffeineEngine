@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE textures SYSTEM "textures.dtd">
+
+<textures>
+    <texture id="text" type="2d">
+
+        <parameters>
+            <parameter name="width" value="16"/>
+            <parameter name="height" value="16"/>
+            <parameter name="warp_s" value="MIRRORED_REPEAT"/>
+            <parameter name="warp_t" value="MIRRORED_REPEAT"/>
+            <parameter name="mag_filter" value="LINEAR"/>
+            <parameter name="min_filter" value="LINEAR_MIPMAP_NEAREST"/>
+        </parameters>
+
+        <images>
+            <image type="png">a.png</image>
+        </images>
+
+    </texture>
+</textures>

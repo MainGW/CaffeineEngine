@@ -1,0 +1,15 @@
+<!ELEMENT textures (texture+)>
+
+<!ELEMENT texture (parameters? , images?)>
+<!ATTLIST texture type CDATA #REQUIRED>
+<!ATTLIST texture id CDATA #REQUIRED>
+<!ELEMENT parameters (parameter+)>
+<!ELEMENT parameter EMPTY>
+<!ATTLIST parameter name CDATA #REQUIRED>
+<!ATTLIST parameter value CDATA #REQUIRED>
+
+
+<!ELEMENT images (image+)>
+<!ELEMENT image (#PCDATA)>
+<!ATTLIST image type CDATA>
+
