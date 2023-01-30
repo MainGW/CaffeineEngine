@@ -1,6 +1,10 @@
 plugins {
     id 'java'
+    id 'eclipse'
+    id 'application'
 }
+
+applicationDefaultJvmArgs = ["-XstartOnFirstThread"]
 
 group 'com.easy'
 version '1.0-SNAPSHOT'
@@ -64,5 +68,6 @@ dependencies {
 }
 
 test {
+	jvmArgs '-XstartOnFirstThread'
     useJUnitPlatform()
 }
