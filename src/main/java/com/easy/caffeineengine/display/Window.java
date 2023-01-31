@@ -1,14 +1,11 @@
-package com.easy.pygame4j.display;
+package com.easy.caffeineengine.display;
 
-import static org.lwjgl.system.MemoryUtil.*;
-
+import com.easy.caffeineengine.api.GLWindowCallBack;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
-import org.lwjgl.vulkan.VkDescriptorPoolInlineUniformBlockCreateInfo;
-
-import com.easy.pygame4j.api.GLWindowCallBack;
 
 import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window {
     private final long window;

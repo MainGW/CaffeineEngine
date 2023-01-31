@@ -1,15 +1,16 @@
-package com.easy.pygame4j.gl.shader;
+package com.easy.caffeineengine.gl.shader;
+
+import com.easy.caffeineengine.gl.GLObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.lwjgl.opengl.GL41C.*;
-import org.slf4j.*;
-
-import com.easy.pygame4j.gl.GLObject;
 
 public class GLShader extends GLObject {
     
 	private final Logger logger = LoggerFactory.getLogger(GLShader.class);
 
-    public GLShader(GLShaderType type, String src) {
+    public GLShader(ShaderType type, String src) {
     	
     	int shader = glCreateShader(type.type);
 
@@ -28,10 +29,19 @@ public class GLShader extends GLObject {
     }
 
     @Override
-    public void destory() {
-    	logger.trace("Shader object destoried");
+    public void destroy() {
     	glDeleteShader(this.handle);
     	this.invalidateHandle();
     }
+
+	public enum ShaderType {
+		VERTEX_SHADER(GL_VERTEX_SHADER),
+		FRAGMENT_SHADER(GL_FRAGMENT_SHADER);
+		final int type;
+
+		ShaderType(int type) {
+			this.type = type;
+		}
+	}
    
 }

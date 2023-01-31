@@ -1,9 +1,10 @@
-package com.easy.pygame4j.gl.buffer;
+package com.easy.caffeineengine.gl.buffer;
 
-import com.easy.pygame4j.gl.GLObject;
-import static org.lwjgl.opengl.GL41C.*;
+import com.easy.caffeineengine.gl.GLObject;
 
 import java.nio.ByteBuffer;
+
+import static org.lwjgl.opengl.GL41C.*;
 
 public class GLVertexArray extends GLObject {
 
@@ -31,7 +32,7 @@ public class GLVertexArray extends GLObject {
 	}
 
 	@Override
-	public void destory() {
+	public void destroy() {
 		this.unbind();
 		glDeleteVertexArrays(this.handle);
 		this.invalidateHandle();

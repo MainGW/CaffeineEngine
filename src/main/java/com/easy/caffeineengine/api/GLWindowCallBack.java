@@ -1,6 +1,6 @@
-package com.easy.pygame4j.api;
+package com.easy.caffeineengine.api;
 
-import com.easy.pygame4j.display.Window;
+import com.easy.caffeineengine.display.Window;
 
 public interface GLWindowCallBack {
 	

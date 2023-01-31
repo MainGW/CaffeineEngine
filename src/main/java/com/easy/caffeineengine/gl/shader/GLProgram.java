@@ -1,23 +1,17 @@
-package com.easy.pygame4j.gl.shader;
+package com.easy.caffeineengine.gl.shader;
 
-import com.easy.pygame4j.gl.GLObject;
+import com.easy.caffeineengine.gl.GLObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import static org.lwjgl.opengl.GL41C.*;
 
-/**
- * The OpenGL Program Class.
- *
- */
 public class GLProgram extends GLObject {
 
 	public GLProgram(int handle) {
 		this.setHandle(handle);
 	}
 
-	/**
-	 * Bind a program.
-	 */
 	public void bind() {
 		glUseProgram(this.handle);
 	}
@@ -27,7 +21,7 @@ public class GLProgram extends GLObject {
 	}
 
 	@Override
-	public void destory() {
+	public void destroy() {
 		glDeleteProgram(this.handle);
 		this.invalidateHandle();
 	}

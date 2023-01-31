@@ -1,9 +1,5 @@
-package com.easy.pygame4j.gl;
+package com.easy.caffeineengine.gl;
 
-/**
- * The root class of the OpenGL Objects.	 
- * 
- */
 public abstract class GLObject {
 	
 	protected final int INVALID_HANDLE_VALUE = Integer.MIN_VALUE;
@@ -11,13 +7,8 @@ public abstract class GLObject {
 	protected int handle = INVALID_HANDLE_VALUE;
 	
 	protected GLObject() {
-		
 	}
-	
-	/**
-	 * 
-	 * @param handle 
-	 */
+
 	public void setHandle(int handle) {
 		this.handle = handle;
 	}
@@ -35,10 +26,6 @@ public abstract class GLObject {
 		this.handle = INVALID_HANDLE_VALUE;
 	}
 	
-	public abstract void destory();
+	public abstract void destroy();
 
-	@Override	
-	public void finalize() {
-		this.destory();
-	}
 }

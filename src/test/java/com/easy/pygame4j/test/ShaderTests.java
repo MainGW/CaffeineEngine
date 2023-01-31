@@ -1,29 +1,28 @@
 package com.easy.pygame4j.test;
-import com.easy.pygame4j.api.GLWindowCallBack;
-import com.easy.pygame4j.display.Window;
-import com.easy.pygame4j.gl.buffer.*;
-import com.easy.pygame4j.gl.shader.*;
+import com.easy.caffeineengine.display.Window;
+import com.easy.caffeineengine.gl.buffer.GLBuffer;
+import com.easy.caffeineengine.gl.buffer.GLBuffer.BufferType;
+import com.easy.caffeineengine.gl.buffer.GLVertexArray;
+import com.easy.caffeineengine.gl.shader.GLProgram;
+import com.easy.caffeineengine.gl.shader.GLShader;
+import com.easy.caffeineengine.gl.shader.GLShader.ShaderType;
 
 import org.junit.jupiter.api.*;
 
 import org.slf4j.*;
 
-import org.lwjgl.Version;
 import org.lwjgl.system.MemoryStack;
 
 import static org.lwjgl.opengl.GL41C.*;
 import static org.lwjgl.system.MemoryStack.*;
-import static org.lwjgl.system.MemoryUtil.*;
 
-import java.io.IOException;
-import java.nio.*;
 import java.nio.file.*;
 
 public class ShaderTests {
 	
 	private final Logger logger = LoggerFactory.getLogger(ShaderTests.class);
 
-    private final float verticles[] = {
+    private final float[] vertices = {
     		0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
     		-0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f,
     		0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f
@@ -40,15 +39,15 @@ public class ShaderTests {
     	
     	try (MemoryStack stack = stackPush()) {
 
-    		GLShader vertex = new GLShader(GLShaderType.VERTEX_SHADER, Files.readString(Paths.get(loader.getResource("vert.glsl").getPath())));
-    		GLShader fragment = new GLShader(GLShaderType.FRAGMENT_SHADER, Files.readString(Paths.get(loader.getResource("frag.glsl").getPath())));
+    		GLShader vertex = new GLShader(ShaderType.VERTEX_SHADER, Files.readString(Paths.get(loader.getResource("vert.glsl").getPath())));
+    		GLShader fragment = new GLShader(ShaderType.FRAGMENT_SHADER, Files.readString(Paths.get(loader.getResource("frag.glsl").getPath())));
     		GLProgram program = new GLProgram.ProgramBuilder()
     				.attachShader(vertex)
     				.attachShader(fragment)
     				.link();
 
-    		GLBuffer vbo = new GLBuffer(GLBufferType.VERTEX_ARRAY_BUFFER);
-    		glBufferData(vbo.getHandle(), verticles, GL_STATIC_DRAW);
+    		GLBuffer vbo = new GLBuffer(BufferType.VERTEX_ARRAY_BUFFER);
+    		glBufferData(vbo.getHandle(), vertices, GL_STATIC_DRAW);
 
     		GLVertexArray vao = new GLVertexArray();
     		vao.bind();
@@ -60,11 +59,11 @@ public class ShaderTests {
     		glDrawArrays(GL_TRIANGLES, 0, 3);
     		win.render();
 
-    		vertex.destory();
-    		fragment.destory();
-    		program.destory();
-    		vbo.destory();
-    		vao.destory();
+    		vertex.destroy();
+    		fragment.destroy();
+    		program.destroy();
+    		vbo.destroy();
+    		vao.destroy();
     		
     		win.destroy();
 
