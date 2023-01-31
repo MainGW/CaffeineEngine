@@ -1,10 +1,7 @@
 plugins {
     id 'java'
-    id 'eclipse'
-    id 'application'
+    id 'idea'
 }
-
-applicationDefaultJvmArgs = ["-XstartOnFirstThread"]
 
 group 'com.easy'
 version '1.0-SNAPSHOT'
